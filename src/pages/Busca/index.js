@@ -1,11 +1,15 @@
 import React, {useRef, useState} from 'react';
 import CustomToast from '../../components/CustomToast';
 import { Animated, StyleSheet, Text, View, Button } from 'react-native'
+import { LogBox } from 'react-native';
+
+LogBox.ignoreWarnings([
+  'Animated: `useNativeDriver` was not specified.',
+]);
 
 export default function Busca() {
   const [toastType, setToastType] = useState('success');
   const [title, setTitle] = useState('Success');
- 
   const slideAnim = useRef(new Animated.Value(120)).current;
 
   const animateToast = () => {
